@@ -44,7 +44,8 @@ module NOAA
     # See discussion above regarding why this method is often preferable to simply calling #current_conditions.
     #
     def current_conditions_at_station(station_id)
-      CurrentConditions.from_xml(HttpService.new.get_current_conditions(station_id))
+      xml_response = HttpService.new.get_current_conditions(station_id)
+      CurrentConditions.from_xml(xml_response) unless xml_response.nil? or xml_response.empty?
     end
 
     # 
@@ -57,7 +58,8 @@ module NOAA
     # for a given location more frequently than that. For more information, please see http://www.nws.noaa.gov/xml/#frequency
     #
     def forecast(num_days, lat, lng)
-      Forecast.from_xml(HttpService.new.get_forecast(num_days, lat, lng))
+      xml_response = HttpService.new.get_forecast(num_days, lat, lng)
+      Forecast.from_xml(xml_response) unless xml_response.nil? or xml_response.empty?
     end
   end
 end
