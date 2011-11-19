@@ -45,7 +45,7 @@ module NOAA
     #
     def current_conditions_at_station(station_id)
       xml_response = HttpService.new.get_current_conditions(station_id)
-      CurrentConditions.from_xml(xml_response) unless xml_response.nil? or xml_response.empty?
+      CurrentConditions.from_xml(xml_response) unless xml_response.nil?
     end
 
     # 
@@ -59,7 +59,7 @@ module NOAA
     #
     def forecast(num_days, lat, lng)
       xml_response = HttpService.new.get_forecast(num_days, lat, lng)
-      Forecast.from_xml(xml_response) unless xml_response.nil? or xml_response.empty?
+      Forecast.from_xml(xml_response) unless xml_response.nil?
     end
   end
 end
