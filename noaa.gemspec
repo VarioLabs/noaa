@@ -29,7 +29,6 @@ This can be run at any time to update the stations, but you must run it once to 
   s.summary = %q{Ruby API for National Oceanic and Atmospheric Administration weather data}
   s.test_files = ["test/test_station_writer.rb", "test/test_forecast.rb", "test/test_helper.rb", "test/test_station.rb", "test/test_http_service.rb", "test/test_current_conditions.rb"]
   s.add_runtime_dependency('nokogiri', '>= 0.9.7')
-  s.add_runtime_dependency('libxml-ruby', '>=2.2.2')
   s.add_runtime_dependency('geokit', '>= 1.5.0')
   s.add_development_dependency('mcmire-context', ">= 0.0.16")
   s.add_development_dependency('jnunemaker-matchy', ">= 0.4.0")
