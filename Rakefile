@@ -27,4 +27,9 @@ task :gemspec => :package do
   File.copy(File.join(File.dirname(__FILE__), 'pkg', "noaa-#{NOAA::VERSION}", 'noaa.gemspec'), File.join(File.dirname(__FILE__), 'noaa.gemspec'))
 end
 
+desc "run spec tests"
+RSpec::Core::RakeTask.new('spec') do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+end
+
 # vim: syntax=Ruby
