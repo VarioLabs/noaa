@@ -20,6 +20,9 @@ module NOAA
     attr_reader :weather_summary
     alias_method :weather_description, :weather_summary
 
+    # Value passed for weather type (e.g. snow, rain, etc.)
+    attr_reader :weather_type
+
     # Symbol representing NOAA weather type. See NOAA::CurrentConditions#weather_type_code
     attr_reader :weather_type_code
 
@@ -32,7 +35,7 @@ module NOAA
     # Percentage probability of precipitation during the evening/night, between 6pm and 6am, as an integer (0-100)
     attr_reader :evening_precipitation_probability
 
-    attr_writer :starts_at, :ends_at, :high, :low, :weather_summary, :weather_type_code, :image_url, #:nodoc:
+    attr_writer :starts_at, :ends_at, :high, :low, :weather_summary, :weather_type, :weather_type_code, :image_url, #:nodoc:
                 :daytime_precipitation_probability, :evening_precipitation_probability #:nodoc:
   end
 end

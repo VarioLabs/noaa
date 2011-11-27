@@ -48,6 +48,12 @@ describe NOAA::Forecast do
       @forecast[i].weather_type_code.should == :ra
     end
   end
+  
+  ["rain", "rain", "rain", "rain"].each_with_index do |type, i|
+    it "should return correct weather type for day #{i}" do
+      @forecast[i].weather_type.should == type
+    end
+  end
 
   [80, 90, 20, 50].each_with_index do |probability, i|
     it "should return correct image URL for day #{i}" do

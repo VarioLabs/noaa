@@ -48,6 +48,7 @@ module NOAA
           day.high = maxima[i]
           day.low = minima[i]
           day.weather_summary = weather_summaries[i]
+          day.weather_type = weather_types[i]
           day.weather_type_code = weather_type_codes[i]
           day.image_url = image_urls[i]
           day.daytime_precipitation_probability = precipitation_probabilities[i*2]
@@ -81,6 +82,12 @@ module NOAA
       end
     end
 
+    def weather_types
+      @weather_types ||= @doc.xpath(%q{/dwml/data/parameters[1]/weather[1]/weather-conditions/value[1]}).map do |node|
+        node['weather-type'].to_s
+      end
+    end
+    
     def weather_summaries
       @weather_summaries ||= @doc.xpath(%q{/dwml/data/parameters[1]/weather[1]/weather-conditions}).map do |node|
         node['weather-summary'].to_s
